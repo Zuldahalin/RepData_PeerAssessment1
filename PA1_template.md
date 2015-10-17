@@ -1,12 +1,29 @@
-# Assignment 1 Activity Monitoring
-Zulkhairi MD  
-October 13, 2015  
+---
+title: "Assignment 1 Activity Monitoring"
+author: "Zulkhairi MD"
+date: "October 13, 2015"
+output: 
+  html_document: 
+    keep_md: yes
+---
 
 1.**Loading and preprocessing the data**  
 Read the activity dataset and convert date column to date format YYYY-MM-DD
 
 ```r
 library(ggplot2)
+```
+
+```
+## 
+## Attaching package: 'ggplot2'
+## 
+## The following object is masked _by_ '.GlobalEnv':
+## 
+##     diamonds
+```
+
+```r
 library(knitr)
 file <- "activity.csv"
 dat <- read.csv(file, header = TRUE, sep = ",")
@@ -36,7 +53,7 @@ head(total_num_steps_perday)#print sample total steps per day
 with(total_num_steps_perday, hist(steps, main = "Total number of steps taken each day"))
 ```
 
-![](PA1_template_files/figure-html/histogram-1.png) 
+![plot of chunk histogram](figure/histogram-1.png) 
   
 Calculate and report the mean and median total number of steps taken per day.  
 
@@ -134,7 +151,7 @@ ggplot(ave_steps_perinterval, aes(x=interval, y=steps)) +
   theme_bw()
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-1-1.png) 
+![plot of chunk unnamed-chunk-1](figure/unnamed-chunk-1-1.png) 
   
 Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps?  
 
@@ -182,7 +199,7 @@ ggplot(data_full, aes(x=steps))+ geom_histogram()
 ## stat_bin: binwidth defaulted to range/30. Use 'binwidth = x' to adjust this.
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-5-1.png) 
+![plot of chunk unnamed-chunk-5](figure/unnamed-chunk-5-1.png) 
 
 ```r
 mean_total_steps <- mean(data_full$steps)
@@ -220,6 +237,6 @@ xyplot(
 )
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-7-1.png) 
+![plot of chunk unnamed-chunk-7](figure/unnamed-chunk-7-1.png) 
   
 **Visual inspection of the two graphs shows overall increased in number of steps during weekends**  
